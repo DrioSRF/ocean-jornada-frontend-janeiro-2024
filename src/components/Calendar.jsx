@@ -8,11 +8,21 @@ import { useState } from "react";
 export default function StaticDatePickerLandscape() {
   const [isOverlayOpen, setIsOverlayOpen] = useState(false)
 
+  const [selectedDate, setSelectedDate] = useState(null);
+
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+    console.log(date)
+  };
+
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <StaticDatePicker 
+        value={selectedDate}
         orientation="landscape"
-        onChange={() => setIsOverlayOpen(!isOverlayOpen)}
+        onChange={handleDateChange}
+        TextField={(params) => <TextField {...params} />}
+        onAccept={() => setIsOverlayOpen(!isOverlayOpen)}
       />
       <Overlay isOpen={isOverlayOpen} onClose={() => setIsOverlayOpen(!isOverlayOpen)}>
         <h1>Overlay</h1>

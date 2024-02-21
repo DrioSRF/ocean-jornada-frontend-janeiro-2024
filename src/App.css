@@ -4,3 +4,19 @@
   padding: 2rem;
   text-align: center;
 }
+
+.css-1aj9me-MuiPickersLayout-root .MuiPickersLayout-toolbar {
+  display: none !important;
+}
+
+.css-1aj9me-MuiPickersLayout-root .MuiPickersLayout-actionBar {
+  background-color: #fffcf4;
+}
+
+.css-16b5y55-MuiPickersLayout-contentWrapper {
+  background-color: #fffcf4;
+}
+
+.css-1q04gal-MuiDateCalendar-root {
+  width: 1000px;
+}

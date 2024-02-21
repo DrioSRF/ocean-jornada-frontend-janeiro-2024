@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(0, 0, 0, 0.87);
-  background-color: #ffffff;
+  background-color: #fffcf4;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -67,4 +67,8 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.css-1aj9me-MuiPickersLayout-root {
+  background-color: #FFFCF4;
 }
