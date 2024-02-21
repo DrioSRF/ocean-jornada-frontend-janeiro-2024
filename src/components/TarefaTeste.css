@@ -1,4 +1,4 @@
-.overlay__background {
+overlay__background {
     background-color: rgba(0, 0, 0, 0.5);
     width: 100vw;
     height: 100vh;
@@ -103,25 +103,4 @@
     color: #000000;
     font-size: 15px;
     cursor: pointer;
-  }
-
-  .atividade__container {
-    background-color: rgba(172, 172, 172, 37);
-    border-radius: 10px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    z-index: 10;
-    padding: 30px;
-    width: 236px;
-    height: 600px;
-  }
-
-  .atividade__control {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
   }
