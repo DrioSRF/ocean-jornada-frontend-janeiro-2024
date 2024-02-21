@@ -4,6 +4,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker';
 import Overlay from "./Overlay";
 import { useState } from "react";
+import Tarefa from "./Tarefa"
 
 export default function StaticDatePickerLandscape() {
   const [isOverlayOpen, setIsOverlayOpen] = useState(false)
@@ -24,9 +25,11 @@ export default function StaticDatePickerLandscape() {
         TextField={(params) => <TextField {...params} />}
         onAccept={() => setIsOverlayOpen(!isOverlayOpen)}
       />
+
       <Overlay isOpen={isOverlayOpen} onClose={() => setIsOverlayOpen(!isOverlayOpen)}>
-        <h1>Overlay</h1>
-      </Overlay>
+        <Tarefa selectedDate={selectedDate}/>
+      </Overlay>,
+      
     </LocalizationProvider>
   );
 }
