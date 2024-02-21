@@ -1,6 +1,6 @@
 import React, { Children, Fragment,  useState } from 'react';
 import TextField from '@mui/material/TextField';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import Radio from '@mui/material/Radio';
@@ -8,6 +8,9 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
+import dayjs from 'dayjs';
+import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
+import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 
 export function Reuniao({ isOpen, onClose, children, selectedDate}) {
   // Use o estado para controlar os valores dos campos de texto
@@ -26,6 +29,10 @@ export function Reuniao({ isOpen, onClose, children, selectedDate}) {
   const [selectedDateIn, setSelectedDate] = useState(selectedDate);
 
   const [value, setValue] = React.useState('female');
+
+  const [selectedTimeIn1, setSelectedTime1] = React.useState(dayjs('2022-04-17T15:30'));
+
+  const [selectedTimeIn2, setSelectedTime2] = React.useState(dayjs('2022-04-17T15:30'));
 
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -80,22 +87,26 @@ export function Reuniao({ isOpen, onClose, children, selectedDate}) {
                 <br />
 
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
-                    <DatePicker
-                        label="Data e Hora de Início"
-                        value={selectedDateIn}
-                        onChange={handleDateChange}
-                        renderInput={(params) => <TextField {...params} />}
-                    />
+                <DateTimePicker
+                  label="Data e Hora de Início"
+                  value={selectedDateIn}
+                  onChange={(newValue) => setSelectedDate(newValue)}
+                />
                 </LocalizationProvider>
 
                 <br />
 
-                <TextField
-                    label="Duração"
-                    variant="outlined"
-                    value={campo2}
-                    onChange={handleCampo2Change}
-                />
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DemoContainer components={['TimePicker']}>
+                    <TimePicker
+                      label="Duração"
+                      ampm={false}
+                      format='HH:mm'
+                      value={selectedTimeIn1}
+                      onChange={(newValue) => setSelectedTime1(newValue)}
+                    />
+                  </DemoContainer>
+                </LocalizationProvider>
 
                 <br />
             
@@ -133,12 +144,17 @@ export function Reuniao({ isOpen, onClose, children, selectedDate}) {
                 </RadioGroup>
                 </FormControl>
 
-                <TextField
-                    label="Horário de lembrete"
-                    variant="outlined"
-                    value={campo5}
-                    onChange={handleCampo5Change}
-                />
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DemoContainer components={['TimePicker']}>
+                    <TimePicker
+                      label="Horário do lembrete"
+                      ampm={false}
+                      format='HH:mm'
+                      value={selectedTimeIn2}
+                      onChange={(newValue) => setSelectedTime2(newValue)}
+                    />
+                  </DemoContainer>
+                </LocalizationProvider>
 
                 <br />
 

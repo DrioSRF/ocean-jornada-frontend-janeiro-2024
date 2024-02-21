@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import "./Overlay.css";
 
 
-export function Overlay({ isOpen, onClose, children, tarefa, reuniao, evento, anotacao, alarme}) {
+export function Overlay({ isOpen, onClose, children, tarefa, reuniao, evento, anotacao, alarme, visualizar}) {
   function clickTarefa() {
     onClose();
     tarefa();
@@ -24,6 +24,11 @@ export function Overlay({ isOpen, onClose, children, tarefa, reuniao, evento, an
   }
 
   function clickAlarme() {
+    onClose();
+    alarme();
+  }
+
+  function clickVisualizar(){
     onClose();
     alarme();
   }
@@ -70,6 +75,13 @@ export function Overlay({ isOpen, onClose, children, tarefa, reuniao, evento, an
                   type="button"
                   style={{marginBottom: '10px'}}
                   onClick={clickAlarme}
+                />
+
+                <button
+                  className="overlay__visualizar"
+                  type="button"
+                  style={{marginBottom: '10px'}}
+                  onClick={clickVisualizar}
                 />
               </div>
             </div>

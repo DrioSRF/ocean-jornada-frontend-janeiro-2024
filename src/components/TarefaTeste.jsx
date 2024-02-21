@@ -1,6 +1,6 @@
 import React, { Children, Fragment,  useState } from 'react';
 import TextField from '@mui/material/TextField';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import Radio from '@mui/material/Radio';
@@ -64,12 +64,12 @@ export function TarefaTeste({ isOpen, onClose, children, dateIn}) {
                 <br />
 
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
-                    <DatePicker
-                        label="Selecione uma data"
-                        value={selectedDateIn}
-                        onChange={handleDateChange}
-                        renderInput={(params) => <TextField {...params} />}
-                    />
+                <DateTimePicker
+                  label="Data e Hora"
+                  ampm={false}
+                  value={selectedDateIn}
+                  onChange={(newValue) => setSelectedDate(newValue)}
+                />
                 </LocalizationProvider>
 
                 <br />

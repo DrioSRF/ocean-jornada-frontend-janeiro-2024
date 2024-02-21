@@ -8,9 +8,10 @@ import Reuniao from "./Reuniao"
 import Evento from "./Evento"
 import Anotacao from "./Anotacao"
 import Alarme from "./Alarme"
+import Visualizar from "./Visualizar"
 
 
-export default function StaticDatePickerLandscape() {  
+export default function StaticDatePickerLandscape() {
   const [isOverlayOpen, setIsOverlayOpen] = useState(false)
 
   const [isTarefaOpen, setIsTarefaOpen] = useState(false)
@@ -18,6 +19,7 @@ export default function StaticDatePickerLandscape() {
   const [isEventoOpen, setIsEventoOpen] = useState(false)
   const [isAnotacaoOpen, setIsAnotacaoOpen] = useState(false)
   const [isAlarmeOpen, setIsAlarmeOpen] = useState(false)
+  const [isVisualizarOpen, setIsVisualizarOpen] = useState(false)
 
   const [selectedDate, setSelectedDate] = useState(null);
 
@@ -46,6 +48,8 @@ export default function StaticDatePickerLandscape() {
       </Anotacao>
       <Alarme isOpen={isAlarmeOpen} onClose={() => setIsAlarmeOpen(!isAlarmeOpen)}>
       </Alarme>
+      <Visualizar isOpen={isVisualizarOpen} onClose={() => setIsVisualizarOpen(!isVisualizarOpen)}>
+      </Visualizar>
       <Overlay
         isOpen={isOverlayOpen}
         onClose={() => setIsOverlayOpen(!isOverlayOpen)}
@@ -53,7 +57,8 @@ export default function StaticDatePickerLandscape() {
         reuniao={() => setIsReuniaoOpen(!isReuniaoOpen)}
         evento={() => setIsEventoOpen(!isEventoOpen)}
         anotacao={() => setIsAnotacaoOpen(!isAnotacaoOpen)}
-        alarme={() => setIsAlarmeOpen(!isAlarmeOpen)}>
+        alarme={() => setIsAlarmeOpen(!isAlarmeOpen)}
+        visualizar={() => setIsVisualizarOpen(!isVisualizarOpen)}>
       </Overlay>
       
     </LocalizationProvider>

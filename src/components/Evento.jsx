@@ -1,6 +1,6 @@
 import React, { Children, Fragment,  useState } from 'react';
 import TextField from '@mui/material/TextField';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import Radio from '@mui/material/Radio';
@@ -8,6 +8,9 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
+import dayjs from 'dayjs';
+import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
+import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 
 export function Evento({ isOpen, onClose, children, selectedDate}) {
   // Use o estado para controlar os valores dos campos de texto
@@ -23,9 +26,13 @@ export function Evento({ isOpen, onClose, children, selectedDate}) {
 
   const [campo6, setCampo6] = useState('');
 
-  const [selectedDateIn, setSelectedDate] = useState(selectedDate);
+  const [selectedDateIn1, setSelectedDate1] = useState(selectedDate);
 
-  const [value, setValue] = React.useState('female');
+  const [selectedDateIn2, setSelectedDate2] = useState(selectedDate);
+
+  const [value, setValue] = React.useState('nao-repetir');
+
+  const [selectedTimeIn, setSelectedTime] = React.useState(dayjs('2022-04-17T15:30'));
 
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -56,8 +63,13 @@ export function Evento({ isOpen, onClose, children, selectedDate}) {
     setCampo6(event.target.value);
   };
 
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
+  const handleDateChange1 = (date) => {
+    setSelectedDate1(date);
+    console.log(date)
+  };
+
+  const handleDateChange2 = (date) => {
+    setSelectedDate2(date);
     console.log(date)
   };
 
@@ -70,22 +82,20 @@ export function Evento({ isOpen, onClose, children, selectedDate}) {
             <div className="evento_reuniao__control">
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
                 <h2>Criar evento</h2>
-                <TextField
-                    label="Título"
-                    variant="outlined"
-                    value={campo1}
-                    onChange={handleCampo1Change}
+                <DateTimePicker
+                  label="Data e Hora de Início"
+                  value={selectedDateIn1}
+                  onChange={(newValue) => setSelectedDate1(newValue)}
                 />
 
                 <br />
 
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
-                    <DatePicker
-                        label="Data e Hora de Início"
-                        value={selectedDateIn}
-                        onChange={handleDateChange}
-                        renderInput={(params) => <TextField {...params} />}
-                    />
+                <DateTimePicker
+                  label="Controlled picker"
+                  value={selectedDateIn2}
+                  onChange={(newValue) => setSelectedDate2(newValue)}
+                />
                 </LocalizationProvider>
 
                 <br />
@@ -93,8 +103,8 @@ export function Evento({ isOpen, onClose, children, selectedDate}) {
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DatePicker
                         label="Data e Hora de Início"
-                        value={selectedDateIn}
-                        onChange={handleDateChange}
+                        value={selectedDateIn2}
+                        onChange={handleDateChange2}
                         renderInput={(params) => <TextField {...params} />}
                     />
                 </LocalizationProvider>
@@ -135,12 +145,17 @@ export function Evento({ isOpen, onClose, children, selectedDate}) {
                 </RadioGroup>
                 </FormControl>
 
-                <TextField
-                    label="Horário de lembrete"
-                    variant="outlined"
-                    value={campo5}
-                    onChange={handleCampo5Change}
-                />
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DemoContainer components={['TimePicker']}>
+                    <TimePicker
+                      label="Horário do lembrete"
+                      ampm={false}
+                      format='HH:mm'
+                      value={selectedTimeIn}
+                      onChange={(newValue) => setSelectedTime(newValue)}
+                    />
+                  </DemoContainer>
+                </LocalizationProvider>
 
                 <br />
 
