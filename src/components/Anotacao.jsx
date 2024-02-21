@@ -4,7 +4,7 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 
-export function Reuniao({ isOpen, onClose, children, selectedDate}) {
+export function Anotacao({ isOpen, onClose, children, selectedDate}) {
   // Use o estado para controlar os valores dos campos de texto
   const [campo1, setCampo1] = useState('');
 
@@ -73,4 +73,4 @@ export function Reuniao({ isOpen, onClose, children, selectedDate}) {
   );
 }
 
-export default Reuniao;
+export default Anotacao;

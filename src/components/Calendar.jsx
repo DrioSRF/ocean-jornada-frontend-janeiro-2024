@@ -4,6 +4,10 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker';
 import Overlay from "./Overlay";
 import TarefaTeste from "./TarefaTeste"
+import Reuniao from "./Reuniao"
+import Evento from "./Evento"
+import Anotacao from "./Anotacao"
+import Alarme from "./Alarme"
 
 
 export default function StaticDatePickerLandscape() {
@@ -12,7 +16,7 @@ export default function StaticDatePickerLandscape() {
   const [isTarefaOpen, setIsTarefaOpen] = useState(false)
   const [isReuniaoOpen, setIsReuniaoOpen] = useState(false)
   const [isEventoOpen, setIsEventoOpen] = useState(false)
-  const [isLembreteOpen, setIsLembreteOpen] = useState(false)
+  const [isAnotacaoOpen, setIsAnotacaoOpen] = useState(false)
   const [isAlarmeOpen, setIsAlarmeOpen] = useState(false)
 
   const [selectedDate, setSelectedDate] = useState(null);
@@ -38,17 +42,17 @@ export default function StaticDatePickerLandscape() {
       </Reuniao>,
       <Evento isOpen={isEventoOpen} onClose={() => setIsEventoOpen(!isEventoOpen)}>
       </Evento>,
+      <Anotacao isOpen={isAnotacaoOpen} onClose={() => setIsAnotacaoOpen(!isAnotacaoOpen)}>
+      </Anotacao>,
       <Alarme isOpen={isAlarmeOpen} onClose={() => setIsAlarmeOpen(!isAlarmeOpen)}>
       </Alarme>,
-      <Lembrete isOpen={isLembreteOpen} onClose={() => setIsLembreteOpen(!isLembreteOpen)}>
-      </Lembrete>,
       <Overlay
         isOpen={isOverlayOpen}
         onClose={() => setIsOverlayOpen(!isOverlayOpen)}
         tarefa={() => setIsTarefaOpen(!isTarefaOpen)}
         reuniao={() => setIsReuniaoOpen(!isReuniaoOpen)}
         evento={() => setIsEventoOpen(!isEventoOpen)}
-        lembrete={() => setIsLembreteOpen(!isLembreteOpen)}
+        lembrete={() => setIsAnotacaoOpen(!isAnotacaoOpen)}
         alarme={() => setIsAlarmeOpen(!isAlarmeOpen)}>
       </Overlay>,
       
