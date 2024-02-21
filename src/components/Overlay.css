@@ -10,18 +10,16 @@
   }
   
   .overlay__container {
-    background-color: rgb(255, 145, 145);
+    background-color: rgba(172, 172, 172, 37);
     border-radius: 10px;
     position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    right: 15px;
+    bottom: 15px;
     margin: auto;
     z-index: 10;
     padding: 30px;
-    width: fit-content;
-    height: fit-content;
+    width: 236px;
+    height: 380px;
   }
   
   .overlay__controls {
@@ -38,6 +36,71 @@
   .overlay__close {
     border: none;
     background-color: black;
+    font-size: 15px;
+    cursor: pointer;
+  }
+
+  .overlay__tarefa:after {
+    display: inline-block;
+    content: "Criar tarefa";
+  }
+
+  .overlay__tarefa {
+    border: none;
+    background-color: #90EE90;
+    color: #000000;
+    font-size: 15px;
+    cursor: pointer;
+  }
+
+  .overlay__reuniao:after {
+    display: inline-block;
+    content: "Criar reunião";
+  }
+
+  .overlay__reuniao {
+    border: none;
+    background-color: #FFD2A5;
+    color: #000000;
+    font-size: 15px;
+    cursor: pointer;
+  }
+
+  .overlay__evento:after {
+    display: inline-block;
+    content: "Criar evento";
+  }
+
+  .overlay__evento {
+    border: none;
+    background-color: #ABE3F3;
+    color: #000000;
+    font-size: 15px;
+    cursor: pointer;
+  }
+
+  .overlay__anotacao:after {
+    display: inline-block;
+    content: "Criar anotação";
+  }
+
+  .overlay__anotacao {
+    border: none;
+    background-color: #FDFD96;
+    color: #000000;
+    font-size: 15px;
+    cursor: pointer;
+  }
+
+  .overlay__alarme:after {
+    display: inline-block;
+    content: "Criar alarme";
+  }
+
+  .overlay__alarme {
+    border: none;
+    background-color: #FFBDB4;
+    color: #000000;
     font-size: 15px;
     cursor: pointer;
   }
