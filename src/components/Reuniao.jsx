@@ -3,6 +3,11 @@ import TextField from '@mui/material/TextField';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
 
 export function Reuniao({ isOpen, onClose, children, selectedDate}) {
   // Use o estado para controlar os valores dos campos de texto
@@ -10,7 +15,21 @@ export function Reuniao({ isOpen, onClose, children, selectedDate}) {
 
   const [campo2, setCampo2] = useState('');
 
+  const [campo3, setCampo3] = useState('');
+
+  const [campo4, setCampo4] = useState('');
+
+  const [campo5, setCampo5] = useState('');
+
+  const [campo6, setCampo6] = useState('');
+
   const [selectedDateIn, setSelectedDate] = useState(selectedDate);
+
+  const [value, setValue] = React.useState('female');
+
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  };
 
   // Funções para lidar com mudanças nos campos de texto
   const handleCampo1Change = (event) => {
@@ -19,6 +38,22 @@ export function Reuniao({ isOpen, onClose, children, selectedDate}) {
 
   const handleCampo2Change = (event) => {
     setCampo2(event.target.value);
+  };
+
+  const handleCampo3Change = (event) => {
+    setCampo3(event.target.value);
+  };
+
+  const handleCampo4Change = (event) => {
+    setCampo4(event.target.value);
+  };
+
+  const handleCampo5Change = (event) => {
+    setCampo5(event.target.value);
+  };
+
+  const handleCampo6Change = (event) => {
+    setCampo6(event.target.value);
   };
 
   const handleDateChange = (date) => {
@@ -31,8 +66,8 @@ export function Reuniao({ isOpen, onClose, children, selectedDate}) {
       {isOpen && (
         <div className='overlay'>
           <div className="overlay__background" onClick={onClose} />
-          <div className="atividade__container">
-            <div className="atividade__control">
+          <div className="evento_reuniao__container">
+            <div className="evento_reuniao__control">
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
                 <h2>Criar reunião</h2>
                 <TextField
@@ -43,26 +78,86 @@ export function Reuniao({ isOpen, onClose, children, selectedDate}) {
                 />
 
                 <br />
-                <br />
 
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DatePicker
-                        label="Selecione uma data"
+                        label="Data e Hora de Início"
                         value={selectedDateIn}
                         onChange={handleDateChange}
                         renderInput={(params) => <TextField {...params} />}
                     />
                 </LocalizationProvider>
-            
+
                 <br />
+
+                <TextField
+                    label="Duração"
+                    variant="outlined"
+                    value={campo2}
+                    onChange={handleCampo2Change}
+                />
+
                 <br />
             
                 <TextField
                     label="Descrição"
                     variant="outlined"
-                    value={campo2}
-                    onChange={handleCampo2Change}
+                    value={campo3}
+                    onChange={handleCampo3Change}
                 />
+
+                <br />
+
+                <TextField
+                    label="Convidados"
+                    variant="outlined"
+                    value={campo4}
+                    onChange={handleCampo4Change}
+                />
+
+                <br />
+
+                <FormControl>
+                <FormLabel id="demo-controlled-radio-buttons-group">Repetição</FormLabel>
+                <RadioGroup
+                    aria-labelledby="demo-controlled-radio-buttons-group"
+                    name="controlled-radio-buttons-group"
+                    value={value}
+                    onChange={handleChange}
+                >
+                    <FormControlLabel value="nao-repetir" control={<Radio />} label="Não repetir" />
+                    <FormControlLabel value="diariamente" control={<Radio />} label="Diariamente" />
+                    <FormControlLabel value="semanalmente" control={<Radio />} label="Semanalmente" />
+                    <FormControlLabel value="mensalmente" control={<Radio />} label="Mensalmente" />
+                    <FormControlLabel value="anualmente" control={<Radio />} label="Anualmente" />
+                </RadioGroup>
+                </FormControl>
+
+                <TextField
+                    label="Horário de lembrete"
+                    variant="outlined"
+                    value={campo5}
+                    onChange={handleCampo5Change}
+                />
+
+                <br />
+
+                <TextField
+                    label="Videoconferência"
+                    variant="outlined"
+                    value={campo6}
+                    onChange={handleCampo6Change}
+                />
+
+                <br />
+
+                <button
+                  className="criar_reuniao"
+                  type="button"
+                  style={{marginBottom: '10px'}}
+                  onClick={onClose}
+                />
+
                 </div>
             </div>
           </div>

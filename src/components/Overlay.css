@@ -105,7 +105,7 @@
     cursor: pointer;
   }
 
-  .atividade__container {
+  .tarefa__container {
     background-color: rgba(172, 172, 172, 37);
     border-radius: 10px;
     position: fixed;
@@ -117,11 +117,71 @@
     z-index: 10;
     padding: 30px;
     width: 236px;
-    height: 600px;
+    height: 650px;
   }
 
-  .atividade__control {
+  .tarefa__control {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+  }
+
+  .evento_reuniao__container {
+    background-color: rgba(172, 172, 172, 37);
+    border-radius: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 10;
+    padding: 30px;
+    width: 236px;
+    height: 900px;
+  }
+
+  .evento_reuniao__control {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .criar_tarefa:after {
+    display: inline-block;
+    content: "Criar tarefa";
+  }
+
+  .criar_tarefa {
+    border: none;
+    background-color: #FFFFFF;
+    color: #000000;
+    font-size: 15px;
+    cursor: pointer;
+  }
+
+  .criar_reuniao:after {
+    display: inline-block;
+    content: "Criar reunião";
+  }
+
+  .criar_reuniao {
+    border: none;
+    background-color: #FFFFFF;
+    color: #000000;
+    font-size: 15px;
+    cursor: pointer;
+  }
+
+  .criar_evento:after {
+    display: inline-block;
+    content: "Criar evento";
+  }
+
+  .criar_evento {
+    border: none;
+    background-color: #FFFFFF;
+    color: #000000;
+    font-size: 15px;
+    cursor: pointer;
   }

@@ -9,15 +9,15 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 
-export function TarefaTeste({ isOpen, onClose, children, selectedDate}) {
+export function TarefaTeste({ isOpen, onClose, children, dateIn}) {
   // Use o estado para controlar os valores dos campos de texto
   const [campo1, setCampo1] = useState('');
 
   const [campo2, setCampo2] = useState('');
 
-  const [selectedDateIn, setSelectedDate] = useState(selectedDate);
+  const [selectedDateIn, setSelectedDate] = useState(dateIn);
 
-  const [value, setValue] = React.useState('female');
+  const [value, setValue] = React.useState('nao-repetir');
 
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -37,13 +37,21 @@ export function TarefaTeste({ isOpen, onClose, children, selectedDate}) {
     console.log(date)
   };
 
+  const teste = () => {
+    console.log(campo1);
+    console.log(campo2);
+    console.log(selectedDateIn);
+    console.log(value);
+    onClose()
+  }
+
   return (
     <Fragment>
       {isOpen && (
         <div className='overlay'>
           <div className="overlay__background" onClick={onClose} />
-          <div className="atividade__container">
-            <div className="atividade__control">
+          <div className="tarefa__container">
+            <div className="tarefa__control">
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
                 <h2>Criar tarefa</h2>
                 <TextField
@@ -90,6 +98,16 @@ export function TarefaTeste({ isOpen, onClose, children, selectedDate}) {
                     value={campo2}
                     onChange={handleCampo2Change}
                 />
+
+                <br />
+
+                <button
+                  className="criar_tarefa"
+                  type="button"
+                  style={{marginBottom: '10px'}}
+                  onClick={teste}
+                />
+
                 </div>
             </div>
           </div>

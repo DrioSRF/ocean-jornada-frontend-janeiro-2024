@@ -20,7 +20,7 @@ export function Overlay({ isOpen, onClose, children, tarefa, reuniao, evento, an
 
   function clickAnotacao() {
     onClose();
-    lembrete();
+    anotacao();
   }
 
   function clickAlarme() {

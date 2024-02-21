@@ -10,7 +10,7 @@ import Anotacao from "./Anotacao"
 import Alarme from "./Alarme"
 
 
-export default function StaticDatePickerLandscape() {
+export default function StaticDatePickerLandscape() {  
   const [isOverlayOpen, setIsOverlayOpen] = useState(false)
 
   const [isTarefaOpen, setIsTarefaOpen] = useState(false)
@@ -36,25 +36,25 @@ export default function StaticDatePickerLandscape() {
         onAccept={() => setIsOverlayOpen(!isOverlayOpen)}
       />
 
-      <TarefaTeste isOpen={isTarefaOpen} onClose={() => setIsTarefaOpen(!isTarefaOpen)}>
-      </TarefaTeste>,
+      <TarefaTeste isOpen={isTarefaOpen} onClose={() => setIsTarefaOpen(!isTarefaOpen)} dateIn={selectedDate}>
+      </TarefaTeste>
       <Reuniao isOpen={isReuniaoOpen} onClose={() => setIsReuniaoOpen(!isReuniaoOpen)}>
-      </Reuniao>,
+      </Reuniao>
       <Evento isOpen={isEventoOpen} onClose={() => setIsEventoOpen(!isEventoOpen)}>
-      </Evento>,
+      </Evento>
       <Anotacao isOpen={isAnotacaoOpen} onClose={() => setIsAnotacaoOpen(!isAnotacaoOpen)}>
-      </Anotacao>,
+      </Anotacao>
       <Alarme isOpen={isAlarmeOpen} onClose={() => setIsAlarmeOpen(!isAlarmeOpen)}>
-      </Alarme>,
+      </Alarme>
       <Overlay
         isOpen={isOverlayOpen}
         onClose={() => setIsOverlayOpen(!isOverlayOpen)}
         tarefa={() => setIsTarefaOpen(!isTarefaOpen)}
         reuniao={() => setIsReuniaoOpen(!isReuniaoOpen)}
         evento={() => setIsEventoOpen(!isEventoOpen)}
-        lembrete={() => setIsAnotacaoOpen(!isAnotacaoOpen)}
+        anotacao={() => setIsAnotacaoOpen(!isAnotacaoOpen)}
         alarme={() => setIsAlarmeOpen(!isAlarmeOpen)}>
-      </Overlay>,
+      </Overlay>
       
     </LocalizationProvider>
   );
